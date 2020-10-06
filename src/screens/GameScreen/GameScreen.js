@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import '../App.css';
-import rocket from '../config/images/rocket.png';
+import '../../App.css';
+import rocket from '../../config/images/rocket.png';
+import AsteroidLauncher from './AsteroidLauncher';
 
 function GameScreen() {
 
@@ -13,19 +14,24 @@ function GameScreen() {
   useEffect(() => {
     window.addEventListener("mousemove", (event) => setMousePosition({width: event.clientX, height: event.clientY}));
 
-    return () => window.removeEventListener("mousemove", (event) => setMousePosition({width: event.clientX + "px", height: event.clientY + "px"}));
+    return () => window.removeEventListener("mousemove", (event) => setMousePosition({width: event.clientX , height: event.clientY }));
   }, []);
 
   return (
     <div className="GameField">
+
+      <AsteroidLauncher />
+
       <img 
         src={rocket}
         alt="rocket" 
+        className="RocketImage"
         style={{
-          postion: "relative",
-          marginLeft: mousePosition.width,
-          marginTop: mousePosition.height,
+          paddingLeft: mousePosition.width - 60,
+          paddingTop: mousePosition.height - 60,
         }}/>
+
+      
     </div>
   );
 }

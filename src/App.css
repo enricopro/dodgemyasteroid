@@ -1,11 +1,22 @@
 html {
+  overflow: hidden;
+}
+
+.GameField {
+  cursor: none;
   background: url(./config/images/background_stars.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100vh;
+  width: 100vw;
 }
 
-.GameField {
-  cursor: none;
+.RocketImage {
+  pointer-events: none;
+}
+
+.AsteroidImage {
+  position: absolute;
 }
